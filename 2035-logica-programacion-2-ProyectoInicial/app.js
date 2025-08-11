@@ -20,7 +20,7 @@ function verificarIntento() { // función que se ejecuta cuando el usuario hace 
     console.log(intentos); // se imprime en la consola la cantidad de intentos del usuario, para ver si se incrementa correctamente
     if (numeroUsuario === numeroSecreto) { // se compara el número del usuario con el número secreto
         asignarTextoElemento(`p`, `¡Felicidades! Adivinaste el número secreto en ${intentos} ${(intentos ===1) ? `vez` : `veces`}`);
-        document.getElementById(`reiniciar`).removeAttribute`disabled`);
+        document.getElementById(`reiniciar`).removeAttribute(`disabled`);
     } else {
         if (numeroUsuario < numeroSecreto) {
             asignarTextoElemento(`p`, `El número secreto es mayor. Intenta de nuevo.`);
@@ -85,12 +85,4 @@ condicionesIniciales();
 //Deshabilitar el botón del nuevo juego
 document.querySelector(`#reiniciar`).setAttribute(`disabled`,`true`);  //Usamos el símbolo numeral porque es ID.  
 }
-
-
-
-
-
-
-
-
-
+}
