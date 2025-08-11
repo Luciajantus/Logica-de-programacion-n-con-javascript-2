@@ -57,13 +57,14 @@ function generarNumeroSecreto() {
     let numeroGenerado = Math.floor(Math.random() * numeroMaximo) + 1; // se genera un número aleatorio entre 1 y 10
     //Si ya sorteamos todos los números:
     if (listanumerosSorteados.length == numeroMaximo) {
+        asignarTextoElemento(`p`, `Ya se sortearon todos los números posibles`);
     } else {    
-    //Si el número generado está incluido en la lista:
-    if (listaNumerosSorteados.includes(numeroGenerado)) {
-    return generarNumeroSecreto ();
-    } else {
-        listaNumerosSorteados.push(numeroGenerado);
-        return(numeroGenerado); 
+        //Si el número generado está incluido en la lista:
+        if (listaNumerosSorteados.includes(numeroGenerado)) {
+        return generarNumeroSecreto ();
+        } else {
+            listaNumerosSorteados.push(numeroGenerado);
+            return(numeroGenerado); 
     } 
     return numeroSecreto; // se retorna el número secreto para que pueda ser usado en otras partes del código
 }
