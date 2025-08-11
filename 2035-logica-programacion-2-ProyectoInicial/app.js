@@ -1,5 +1,5 @@
-let numeroSecreto = generarNumeroSecreto(); // se llama a la función para generar el número secreto y se guarda en una variable
-let intentos = 1; // variable que guarda la cantidad de intentos del usuario, se inicializa en 1 porque el usuario ya ha hecho un intento al cargar la página
+let numeroSecreto = 0; // se llama a la función para generar el número secreto y se guarda en una variable
+let intentos = 0; // variable que guarda la cantidad de intentos del usuario, se inicializa en 1 porque el usuario ya ha hecho un intento al cargar la página
 /* function asignarTextoElemento() {                    IMPORTANTE: aca se muestrann las dos formas de definir una función para cambiar el texto
     let titulo = document.querySelector(`h1`);
     titulo.innerHTML = `Juego del número secreto actualizado`;
@@ -40,8 +40,15 @@ function verificarIntento() { // función que se ejecuta cuando el usuario hace 
     */
 }
 
+condicionesIniciales();
+
+function condicionesIniciales() {
+
 asignarTextoElemento(`h1`, `Juego del número secreto`); // se llama a la función con los parámetros necesarios
 asignarTextoElemento(`p`, `Adivina el número entre 1 y 10`); // se llama a la función con los parámetros necesarios
+numeroSecreto = generarNumeroSecreto(); 
+intentos = 1;
+    }
 
 function generarNumeroSecreto() {
     let numeroSecreto = Math.floor(Math.random() * 10) + 1; // se genera un número aleatorio entre 1 y 10
@@ -49,6 +56,17 @@ function generarNumeroSecreto() {
 }
 
 
+
+function reiniciarJuego() {
+//La función es de limpiar la caja, tal y como si hubiese aplicado un F5 para reiniciar la página web
+    limpiarCaja();
+//Generar mensaje de intervalo de números.
+//Generar el número aleatorio
+//Inicializar el número de intentos
+condicionesIniciales();
+//Deshabilitar el botón del nuevo juego
+    
+}
 
 
 
