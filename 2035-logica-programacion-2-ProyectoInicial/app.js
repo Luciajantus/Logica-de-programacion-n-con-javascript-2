@@ -4,6 +4,8 @@ let intentos = 0; // variable que guarda la cantidad de intentos del usuario, se
     let titulo = document.querySelector(`h1`);
     titulo.innerHTML = `Juego del número secreto actualizado`;
 } */
+let listaNumerosSorteados = [];
+let numeroMaximo = 10;
 
 function asignarTextoElemento(elemento, texto) { // la función ahora recibe parámetros, para ser lo más reutilizable y genérica posible, por otro lado, no se usan las comillas porque es una variable
     let elementohtml = document.querySelector(elemento);
@@ -45,16 +47,31 @@ condicionesIniciales();
 function condicionesIniciales() {
 
 asignarTextoElemento(`h1`, `Juego del número secreto`); // se llama a la función con los parámetros necesarios
-asignarTextoElemento(`p`, `Adivina el número entre 1 y 10`); // se llama a la función con los parámetros necesarios
+asignarTextoElemento(`p`, `Adivina el número entre 1 y ${numeroMaximo}`); // se llama a la función con los parámetros necesarios
 numeroSecreto = generarNumeroSecreto(); 
 intentos = 1;
     }
 
 function generarNumeroSecreto() {
-    let numeroSecreto = Math.floor(Math.random() * 10) + 1; // se genera un número aleatorio entre 1 y 10
+    // opcion 1: let numeroSecreto = Math.floor(Math.random() * 10) + 1; // se genera un número aleatorio entre 1 y 10
+    let numeroGenerado = Math.floor(Math.random() * numeroMaximo) + 1; // se genera un número aleatorio entre 1 y 10
+    //Si ya sorteamos todos los números:
+    if (listanumerosSorteados.length == numeroMaximo) {
+    } else {    
+    //Si el número generado está incluido en la lista:
+    if (listaNumerosSorteados.includes(numeroGenerado)) {
+    return generarNumeroSecreto ();
+    } else {
+        listaNumerosSorteados.push(numeroGenerado);
+        return(numeroGenerado); 
+    } 
     return numeroSecreto; // se retorna el número secreto para que pueda ser usado en otras partes del código
 }
-
+/*    Bueno, aca lo importante es que siempre el numeroGenerado debe dar un número distinto de lo que ya se dio.
+Que quiere decir? básicamente que si salio 5, 3 .. y sale 5 nuevamente, lo que va a hacer el sistema es volver a tirar para que salga un numero distinto.
+Pero hay un error.. hay 10 intentos: del 0 al 9.. cuando se llegó a todos los números posibles, el sistema se colapsa.
+por ende el problema actual es que no se indicaron los límites de hasta donde pueden llegar.
+*/
 
 
 function reiniciarJuego() {
