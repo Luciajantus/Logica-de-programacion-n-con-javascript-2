@@ -25,8 +25,18 @@ function verificarIntento() { // función que se ejecuta cuando el usuario hace 
             asignarTextoElemento(`p`, `El número secreto es menor. Intenta de nuevo.`);
         }
         intentos++; // se incrementa la cantidad de intentos del usuario
+        limpiarCaja(); //se llama a la función limpiarCaja para que el número elegido desaparezca y el usuario elija otro número
     }
-    return; // se usa el return para que la función no retorne nada, es una buena práctica
+    
+}
+
+ function limpiarCaja() {
+    documnent.queryselector(`#valorUsuario`).value = ``; //Es una forma más resumida de llamar al valorUsuario y ni bien se selecciona intentar, se elimina el número elegido.
+
+/* function limpiarCaja() {
+    let valorCaja = documnent.queryselector(`#valorUsuario`);  //Se usa para llamar al sector del HTML donde dá el valor del usuario
+    let valorCaja.value =``; //Luego de dar el valor del usuario, le cambia el valor a "vacío", así no figura siempre el número anterior usado
+    */
 }
 
 asignarTextoElemento(`h1`, `Juego del número secreto`); // se llama a la función con los parámetros necesarios
