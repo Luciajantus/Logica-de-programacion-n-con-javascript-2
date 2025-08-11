@@ -65,7 +65,7 @@ function reiniciarJuego() {
 //Inicializar el número de intentos
 condicionesIniciales();
 //Deshabilitar el botón del nuevo juego
-    
+document.querySelector(`#reiniciar`).setAttribute(`disabled`,`true`);  //Usamos el símbolo numeral porque es ID.  
 }
 
 
